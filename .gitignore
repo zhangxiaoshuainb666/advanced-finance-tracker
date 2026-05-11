@@ -2,3 +2,25 @@ coverage/
 node_modules/
 npm-debug.log*
 .codex-git/
+
+# Coursework/local deliverables and evidence files kept off GitHub.
+CPT304 Coursework 1.pdf
+AmirhosseinProject-Preview.png
+TASKS_REQUIRING_YOUR_ACTION.md
+report-draft.md
+individual-contribution.xlsx
+github-url.txt
+live-url.txt
+README.md
+LICENSE
+*.md
+*.txt
+*.pdf
+*.xlsx
+*.docx
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
