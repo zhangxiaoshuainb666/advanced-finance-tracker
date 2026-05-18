@@ -499,7 +499,11 @@ a:focus-visible {
 }
 
 .cookie-banner[hidden] {
-  display: none;
+  display: none !important;
+}
+
+.cookie-banner.is-hidden {
+  display: none !important;
 }
 
 .cookie-banner__title {

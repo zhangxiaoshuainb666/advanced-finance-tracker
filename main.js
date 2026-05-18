@@ -502,12 +502,29 @@ const exportToCSV = () => {
 };
 
 const syncCookieBanner = () => {
-  const hasChoice = Boolean(localStorage.getItem(COOKIE_CONSENT_KEY));
+  if (!dom.cookieBanner) return;
+
+  let hasChoice = false;
+
+  try {
+    hasChoice = Boolean(localStorage.getItem(COOKIE_CONSENT_KEY));
+  } catch (error) {
+    hasChoice = false;
+  }
+
   dom.cookieBanner.hidden = hasChoice;
+  dom.cookieBanner.classList.toggle("is-hidden", hasChoice);
+  dom.cookieBanner.setAttribute("aria-hidden", String(hasChoice));
+  dom.cookieBanner.style.display = hasChoice ? "none" : "";
 };
 
 const saveCookieChoice = (choice) => {
-  localStorage.setItem(COOKIE_CONSENT_KEY, choice);
+  try {
+    localStorage.setItem(COOKIE_CONSENT_KEY, choice);
+  } catch (error) {
+    dom.cookieBanner.dataset.cookieChoice = choice;
+  }
+
   syncCookieBanner();
   showToast(
     choice === "accepted"
